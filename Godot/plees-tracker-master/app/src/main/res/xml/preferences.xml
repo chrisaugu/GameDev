@@ -1,0 +1,55 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/settings_category_theme">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="follow_system_theme"
+            android:title="@string/settings_follow_system_theme" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="follow_system_theme"
+            android:key="dark_mode"
+            android:title="@string/settings_enable_dark_theme" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_backup">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="auto_backup"
+            android:title="@string/settings_automatic_backup" />
+        <Preference
+            android:key="auto_backup_path"
+            android:title="@string/settings_backup_path" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_dashboard">
+        <ListPreference
+            android:key="dashboard_duration"
+            android:title="@string/settings_dashboard_duration"
+            android:entries="@array/duration_entries"
+            android:entryValues="@array/duration_entry_values"
+            android:defaultValue="-7"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            android:key="ideal_sleep_length"
+            android:title="@string/settings_ideal_sleep_length"
+            android:entries="@array/ideal_sleep_entries"
+            android:entryValues="@array/ideal_sleep_entry_values"
+            android:defaultValue="8.0"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/past_sleeps">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="show_awake_for"
+            android:title="@string/show_awake_duration" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="show_rating"
+            android:title="@string/show_rating" />
+    </PreferenceCategory>
+</PreferenceScreen>
+

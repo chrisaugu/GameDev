@@ -1,0 +1,32 @@
+name: tests
+on:
+  push:
+    branches-ignore:
+      - 'private/**'
+  pull_request:
+    branches-ignore:
+      - 'private/**'
+  create:
+    branches-ignore:
+      - 'private/**'
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: setup Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2.19.0
+      with:
+        api-level: 27
+        script: tools/ci-build.sh
+    - uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: dist/*.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,13 @@
+.idea
+.vs
+.vscode
+bin
+obj
+Logs
+
+Assets/Libs/SDL2-2.26.1
+Assets/Libs/SelbaWard
+Assets/Libs/SFGUI-0.4.0
+Assets/Libs/SFML-2.5.1
+Assets/Libs/SFML-2.5.1x
+Assets/Libs/TGUI-0.9.5
